@@ -1,0 +1,9 @@
+{
+  "name": "credit_card_validation",
+  "version": "1.0.0",
+  "description": "credit cart validation",
+  "main": "index.js",
+  "repository": "https://github.com/Yushkevich-A-A/credit_card_validation.git",
+  "author": "Yushkevich-A-A <Mortifer1993@yandex.ru>",
+  "license": "MIT"
+}
