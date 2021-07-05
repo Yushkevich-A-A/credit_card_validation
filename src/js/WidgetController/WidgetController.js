@@ -2,8 +2,9 @@
 /* eslint-disable class-methods-use-this */
 /* eslint-disable no-bitwise */
 /* eslint-disable no-cond-assign */
+/* eslint-disable import/no-useless-path-segments */
 
-import dataCreditSystem from '../DataCreditSystem/dataCreditSystem';
+import dataCreditSystem from './../DataCreditSystem/DataCreditSystem';
 
 export default class WidgetController {
   constructor(widget = null) {
