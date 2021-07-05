@@ -45,7 +45,6 @@ export default class WidgetValidate {
     this.button = this.widgetBlock.querySelector('.button-validate');
     this.error = this.widgetBlock.querySelector('.error');
 
-
     document.body.appendChild(this.widgetBlock);
   }
 

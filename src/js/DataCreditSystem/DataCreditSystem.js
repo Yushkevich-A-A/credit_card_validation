@@ -1,32 +1,32 @@
 const dataCreditSystem = [
   {
     name: 'amex',
-    startWith: [34, 37]
+    startWith: [34, 37],
   },
   {
     name: 'visa',
-    startWith: [4]
+    startWith: [4],
   },
   {
     name: 'master',
-    startWith: [51, 52, 53, 54, 55]
+    startWith: [51, 52, 53, 54, 55],
   },
   {
     name: 'discover',
-    startWith: [60]
+    startWith: [60],
   },
   {
     name: 'jcb',
-    startWith: [31, 35]
+    startWith: [31, 35],
   },
   {
     name: 'diners_club',
-    startWith: [30, 36, 38]
+    startWith: [30, 36, 38],
   },
   {
     name: 'mir',
-    startWith: [2]
-  }
-]
+    startWith: [2],
+  },
+];
 
 export default dataCreditSystem;

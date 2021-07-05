@@ -1,15 +1,20 @@
+/* eslint-disable import/no-unresolved */
+/* eslint-disable class-methods-use-this */
+/* eslint-disable no-bitwise */
+/* eslint-disable no-cond-assign */
+
 import dataCreditSystem from '../DataCreditSystem/dataCreditSystem';
 
-export default class WidgetController{
+export default class WidgetController {
   constructor(widget = null) {
     this.widget = widget;
     this.dataCreditSystem = dataCreditSystem;
 
-    this.checkBindingDOM()
+    this.checkBindingDOM();
   }
 
   addListeners() {
-    document.addEventListener('click', event => {
+    document.addEventListener('click', (event) => {
       if (event.target.closest('.button-validate')) {
         event.preventDefault();
         this.widget.removeError();
@@ -17,23 +22,23 @@ export default class WidgetController{
         this.widget.input.blur();
         this.widget.form.reset();
       }
-    })
+    });
 
-    this.widget.input.addEventListener('keydown', event => {
-      if(event.code === 'Enter') {
+    this.widget.input.addEventListener('keydown', (event) => {
+      if (event.code === 'Enter') {
         this.widget.button.click();
       }
-    })
+    });
   }
 
   allItemDisactive() {
-    for (let i of this.cartCollection) {
+    for (const i of this.cartCollection) {
       i.classList.add('disactive');
     }
   }
 
   allItemActive() {
-    for (let i of this.cartCollection) {
+    for (const i of this.cartCollection) {
       i.classList.remove('disactive');
     }
   }
@@ -44,7 +49,7 @@ export default class WidgetController{
   }
 
   checkInput() {
-    const value = this.checkValidity(this.widget.input.value)
+    const value = this.checkValidity(this.widget.input.value);
     if (!value) {
       this.widget.addError();
       this.allItemActive();
@@ -57,27 +62,26 @@ export default class WidgetController{
     } else {
       this.allItemActive();
     }
-
   }
 
   checkValidity(value) {
-     let ch = 0;
-     const num = String(value).replace(/\D/g, '');
-     const isOdd = num.length % 2 !== 0;
-     if ('' === num) return false;
-     for (let i = 0; i < num.length; i++) {
-         let n = parseInt(num[i], 10);
- 
-         ch += (isOdd | 0) === (i % 2) && 9 < (n *= 2) ? (n - 9) : n;
-     }
-     return 0 === (ch % 10);
+    let ch = 0;
+    const num = String(value).replace(/\D/g, '');
+    const isOdd = num.length % 2 !== 0;
+    if (num === '') return false;
+    for (let i = 0; i < num.length; i++) {
+      let n = parseInt(num[i], 10);
+
+      ch += (isOdd | 0) === (i % 2) && (n *= 2) > 9 ? (n - 9) : n;
+    }
+    return (ch % 10) === 0;
   }
 
   belongToCreditSystem(data) {
-    let value = String(data);
-    for (let i of this.dataCreditSystem) {
-      let finding = i.startWith.find( item => value.startsWith(String(item)));
-      if(finding) {
+    const value = String(data);
+    for (const i of this.dataCreditSystem) {
+      const finding = i.startWith.find((item) => value.startsWith(String(item)));
+      if (finding) {
         return i.name;
       }
     }
